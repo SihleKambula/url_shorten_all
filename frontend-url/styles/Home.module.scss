@@ -1,0 +1,53 @@
+@import "./shared/utils.scss";
+
+.container {
+  display: flex;
+}
+
+// copy right styling
+.copy_right {
+  margin-top: 100px;
+  margin-left: 100px;
+  width: 600px;
+
+  h1 {
+    font-size: 5rem;
+    color: $textColor;
+  }
+  p {
+    font-size: 1.5rem;
+    color: gray;
+    line-height: 2rem;
+  }
+
+  .btn {
+    background-color: $bgColor;
+    display: inline-block;
+    padding: 15px 25px;
+    margin-top: 40px;
+    border-radius: 20px;
+
+    a {
+      background-color: transparent;
+      border: none;
+      color: #fff;
+      font-weight: 600;
+      font-size: 1.2rem;
+    }
+  }
+}
+
+// Illustration image
+.img {
+  padding-top: 60px;
+  padding-left: 60px;
+}
+
+// main section
+.main {
+  margin-top: 50px;
+  height: 100vh;
+  background-color: rgba(105, 105, 105, 0.199);
+
+  padding-top: 40px;
+}

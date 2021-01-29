@@ -1,65 +1,38 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
-
-export default function Home() {
+import Layout from "../components/Layout";
+import style from "../styles/Home.module.scss";
+import Link from "next/link";
+import UrlShortener from "../components/UrlShortener";
+import ShortenUrl from "../components/ShortenUrl";
+function Home() {
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
+    <Layout pageTitle="Home">
+      <div>
+        <div className={style.container}>
+          <div className={style.copy_right}>
+            <h1>More then just shorter links</h1>
             <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
+              Build your brand's recognition and get detailed insights on how
+              your links are performing.
             </p>
-          </a>
+            <div className={style.btn}>
+              <Link href="#start">Get Started</Link>
+            </div>
+          </div>
+          <div className={style.img}>
+            <img
+              src="/images/illustration-working.svg"
+              alt="illustration-working"
+            />
+          </div>
         </div>
-      </main>
 
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
-  )
+        <section className={style.main} id="start">
+          <UrlShortener />
+          <ShortenUrl />
+        </section>
+      </div>
+    </Layout>
+  );
 }
+
+export default Home;
