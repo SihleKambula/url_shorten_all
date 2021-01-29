@@ -1,6 +1,7 @@
 import Layout from "../components/Layout";
 import style from "../styles/login.module.scss";
 import { useState } from "react";
+import Link from "next/link";
 
 function Login() {
   //State
@@ -44,6 +45,10 @@ function Login() {
           )}
 
           <button>Login</button>
+
+          <span>
+            Don't have an account? <Link href="/signup">Sign up</Link>
+          </span>
         </form>
       </div>
     </Layout>
