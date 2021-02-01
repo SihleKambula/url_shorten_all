@@ -18,7 +18,7 @@ const LoggedInLinks = () => {
         <Link href="savedLinks">Saved urls</Link>
       </li>
       <li>
-        <Link>Log out</Link>
+        <Link href="/">Log out</Link>
       </li>
     </>
   );
@@ -34,8 +34,8 @@ function Navbar() {
         <li>
           <Link href="/">Home</Link>
         </li>
-        <LoggedOutLinks />
-        {/* <LoggedInLinks /> */}
+        {/* <LoggedOutLinks /> */}
+        <LoggedInLinks />
       </ul>
     </nav>
   );

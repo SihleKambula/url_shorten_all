@@ -1,0 +1,10 @@
+@import "../styles/shared/utils.scss";
+
+.container {
+  width: 720px;
+  margin: 20px auto;
+  h1 {
+    color: $bgColor;
+    text-align: center;
+  }
+}

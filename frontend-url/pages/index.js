@@ -28,7 +28,10 @@ function Home() {
 
         <section className={style.main} id="start">
           <UrlShortener />
-          <ShortenUrl />
+          <ShortenUrl
+            longUrl="https://longsideoflife.io"
+            shortUrl="https://lil_link/k4lgk"
+          />
         </section>
       </div>
     </Layout>
