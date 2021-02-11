@@ -1,9 +1,14 @@
 import Layout from "../components/Layout";
 import style from "../styles/login.module.scss";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import { FirebaseContext } from "../logic/context";
 
 function Login() {
+  const router = useRouter();
+  // context
+  const { signUserIn } = useContext(FirebaseContext);
   //State
   const [emailError, setEmailError] = useState(null);
   const [passwordError, setPasswordError] = useState(null);
@@ -11,20 +16,24 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  //Functions
-  function handleSubmit(e) {
+  // handle submit
+  async function handleSubmit(e) {
     e.preventDefault();
+    if (email && password) {
+      const result = await signUserIn(email, password);
+      router.push("/");
+    }
     email ? setEmailError(null) : setEmailError(true);
     password ? setPasswordError(null) : setPasswordError(true);
   }
 
   return (
     <Layout pageTitle="Login">
-      <div>
+      <div className={style.container}>
         <form className={style.form} onSubmit={handleSubmit}>
           <label htmlFor="email">Email</label>
           <input
-            type="text"
+            type="email"
             name="email"
             placeholder="example@email.com"
             value={email}

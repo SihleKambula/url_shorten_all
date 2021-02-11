@@ -52,3 +52,13 @@
     }
   }
 }
+
+//media styling
+@media screen and (max-width: 640px) {
+  .container {
+    padding: 0 20px;
+  }
+  .form {
+    width: 100%;
+  }
+}

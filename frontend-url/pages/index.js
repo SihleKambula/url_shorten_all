@@ -3,10 +3,16 @@ import style from "../styles/Home.module.scss";
 import Link from "next/link";
 import UrlShortener from "../components/UrlShortener";
 import ShortenUrl from "../components/ShortenUrl";
-function Home() {
+import { useContext, useState } from "react";
+import { FirebaseContext } from "../logic/context";
+import { BackendContext } from "../logic/backendContext";
+
+const Home = () => {
+  // context data
+  const { urls } = useContext(BackendContext);
   return (
     <Layout pageTitle="Home">
-      <div>
+      <>
         <div className={style.container}>
           <div className={style.copy_right}>
             <h1>More then just shorter links</h1>
@@ -28,14 +34,14 @@ function Home() {
 
         <section className={style.main} id="start">
           <UrlShortener />
-          <ShortenUrl
-            longUrl="https://longsideoflife.io"
-            shortUrl="https://lil_link/k4lgk"
-          />
+          {/* Show the converted url */}
+          {urls && (
+            <ShortenUrl longUrl={urls.longUrl} shortUrl={urls.shortUrl} />
+          )}
         </section>
-      </div>
+      </>
     </Layout>
   );
-}
+};
 
 export default Home;
